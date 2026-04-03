@@ -10,3 +10,5 @@ F &\sim \text{Binomial}(N, \theta) \\
 \beta &= 500
 \end{align*}
 $$
+
+##### Press Ctrl+Shift+V to open the markdown preview
