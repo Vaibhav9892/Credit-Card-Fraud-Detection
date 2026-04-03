@@ -1,0 +1,11 @@
+digraph {
+	N [label=N shape=ellipse]
+	theta [label=theta shape=ellipse]
+	beta [label=beta shape=ellipse]
+	F [label=F shape=ellipse]
+	alpha [label=alpha shape=ellipse]
+	alpha -> theta
+	beta -> theta
+	theta -> F
+	N -> F
+}
