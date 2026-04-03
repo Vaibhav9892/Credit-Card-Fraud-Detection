@@ -38,10 +38,14 @@ def main():
             random_seed=42
         )
 
+    summary_df = az.summary(trace, var_names=["theta"])
     print("\nPosterior summary for theta:")
-    print(az.summary(trace, var_names=["theta"]))
+    print(summary_df)
+    summary_df.to_csv("posterior_theta_summary.csv")
 
+    plt.figure(figsize=(8, 5))
     az.plot_posterior(trace, var_names=["theta"])
+    plt.savefig("posterior_theta.png", dpi=300, bbox_inches="tight")
     plt.show()
 
 if __name__ == "__main__":
