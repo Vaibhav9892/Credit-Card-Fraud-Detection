@@ -1,5 +1,8 @@
 # synth_tools/bootstrap.py
-
+'''
+This module contains functions for bootstrapping the minority class (Fraud) in our dataset.
+This is a traditional technique to create a larger, more balanced dataset by sampling with replacement.
+'''
 import pandas as pd
 from sklearn.utils import resample
 

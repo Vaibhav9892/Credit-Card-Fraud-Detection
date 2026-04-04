@@ -1,5 +1,9 @@
 # bayes_tools/diagnostics.py
-
+'''
+This module provides diagnostic tools for Bayesian models, including functions to
+summarize MCMC convergence statistics, plot trace and posterior densities, and visualize
+forest plots of parameter intervals. These tools help assess the health and reliability of the sampled posterior distributions.
+'''
 import arviz as az
 import matplotlib.pyplot as plt
 import pandas as pd

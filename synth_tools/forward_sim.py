@@ -1,5 +1,8 @@
 # synth_tools/forward_sim.py
-
+'''
+This module contains functions for forward-simulating an artificial banking environment based on our Causal DAG.
+Useful for testing if the Bayesian model can recover the true causal weights.
+'''
 import pandas as pd
 import numpy as np
 

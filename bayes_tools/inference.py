@@ -1,5 +1,10 @@
 # bayes_tools/inference.py
-
+'''
+This module provides core functions for performing inference with Bayesian models, including
+Posterior Predictive Checks (PPC) to generate synthetic data, and a function to calculate the optimal decision threshold
+using Bayesian Decision Theory. These tools allow practitioners to evaluate model performance and
+make informed decisions based on the costs of different types of errors.
+'''
 import pymc as pm
 import arviz as az
 import numpy as np

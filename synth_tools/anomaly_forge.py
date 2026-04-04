@@ -1,5 +1,9 @@
 # synth_tools/anomaly_forge.py
-
+'''
+This module contains functions for forging completely synthetic anomalies using Kernel Density Estimation (KDE).
+The idea is to mathematically map the "mountain" of existing fraud in the feature space
+and then sample new points from that mountain to create novel, never-before-seen synthetic frauds.
+'''
 import pandas as pd
 import numpy as np
 from scipy.stats import gaussian_kde

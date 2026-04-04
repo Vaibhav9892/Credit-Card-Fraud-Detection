@@ -1,5 +1,10 @@
 # bayes_tools/models.py
-
+'''
+This module defines the core functions for building and sampling Bayesian Logistic Regression models using PyMC.
+The `build_logistic_model` function constructs the model architecture based on the input features and specified priors,
+while the `sample_model` function executes MCMC sampling to obtain the posterior distributions of
+the model parameters. These functions are designed to be flexible and reusable for various datasets and modeling scenarios.
+'''
 import pandas as pd
 import numpy as np
 import pymc as pm

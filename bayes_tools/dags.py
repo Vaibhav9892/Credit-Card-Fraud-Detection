@@ -1,5 +1,9 @@
 # bayes_tools/dags.py
-
+'''
+This module provides tools for constructing and visualizing Directed Acyclic Graphs (DAGs)
+for causal inference, as well as assessing multicollinearity among features using Variance Inflation Factor (VIF).
+It also includes a function to generate pairwise scatter plots with KDE diagonals for exploratory data analysis.
+'''
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
