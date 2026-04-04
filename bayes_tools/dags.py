@@ -11,35 +11,38 @@ import seaborn as sns
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 from statsmodels.tools.tools import add_constant
 
-try:
-    from causalgraphicalmodels import CausalGraphicalModel
-except ImportError:
-    print("Please install causalgraphicalmodels: pip install causalgraphicalmodels")
 
+try:
+    import graphviz
+    HAS_GRAPHVIZ = True
+except ImportError:
+    HAS_GRAPHVIZ = False
 
 def visualize_causal_graph(cause_node: str, effect_nodes: list) -> None:
     """
-    Generates and renders a Directed Acyclic Graph (DAG) for causal inference.
-
-    Args:
-        cause_node (str): The name of the unobserved or primary parent cause.
-        effect_nodes (list): A list of strings representing the child variables 
-                             affected by the cause_node.
-
-    Returns:
-        IPython.display.SVG: Renders the graph in a Jupyter environment.
+    Standard Modern Method: Generates a DAG using Graphviz directly.
+    Bypasses the broken 'causalgraphicalmodels' package.
     """
-    print(f"Generating DAG mapping: '{cause_node}' -> {effect_nodes}")
+    if not HAS_GRAPHVIZ:
+        print("Graphviz not found. Install with: brew install graphviz && pip install graphviz")
+        return None
+
+    print(f"Generating Modern DAG: '{cause_node}' -> {effect_nodes}")
     
-    edges = [(cause_node, effect) for effect in effect_nodes]
-    all_nodes = [cause_node] + effect_nodes
+    # Create the Digraph object
+    dot = graphviz.Digraph(comment='Causal Model')
+    dot.attr(rankdir='LR') # Left to Right layout
     
-    dag = CausalGraphicalModel(
-        nodes=all_nodes,
-        edges=edges
-    )
-    
-    return dag.draw()
+    # Add the nodes
+    dot.node('C', cause_node, shape='ellipse', color='tomato', style='bold')
+    for i, effect in enumerate(effect_nodes):
+        node_id = f'E{i}'
+        dot.node(node_id, effect, shape='box')
+        dot.edge('C', node_id) # Draw the arrow
+        
+    return dot
+
+# ... keep assess_multicollinearity and plot_pairwise_distributions as they were ...
 
 
 def assess_multicollinearity(df: pd.DataFrame, features: list, threshold: float = 5.0) -> pd.DataFrame:
