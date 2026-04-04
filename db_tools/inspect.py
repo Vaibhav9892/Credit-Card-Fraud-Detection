@@ -1,4 +1,22 @@
 # db_tools/inspect.py
+"""
+This module provides utilities for inspecting the structure of a SQLite database, including
+listing all tables and printing the schema of specific tables. It is designed to help users understand the layout of their database and the data types of each column, which is essential
+for effective data analysis and manipulation.
+Dependencies:
+sqlite3: For interacting with SQLite databases.
+pandas: For DataFrame operations and SQL query execution.
+Functions:
+- get_tables: Returns a list of all tables in the database.
+- print_schema: Prints the schema (columns and data types) for a specific table.
+Usage:
+    >>> get_tables('my_database.db')
+    ['table1', 'table2']
+    >>> print_schema('my_database.db', 'table1')
+    --- Schema for 'table1' ---
+    column1  TEXT
+    column2  INTEGER
+    ------------------------------"""
 import sqlite3
 import pandas as pd
 

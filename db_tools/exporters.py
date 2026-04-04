@@ -1,4 +1,26 @@
 # db_tools/exporters.py
+
+'''
+This module provides utilities for exporting data from pandas DataFrames to various formats,
+including CSV files and SQLite databases. It is designed to handle common data export tasks
+in data science and machine learning workflows, particularly for saving processed datasets
+and query results.
+
+Dependencies:
+
+sqlite3: For interacting with SQLite databases.
+pandas: For DataFrame operations and SQL query execution.
+
+Functions:
+- df_to_csv: Exports a Pandas DataFrame to a CSV file.
+- query_to_csv: Executes a query and exports the direct result to a CSV.
+- create_xy_database: Creates a new SQLite database containing two tables (X and Y).
+
+Usage:
+    >>> df_to_csv(my_dataframe, 'output.csv')
+    >>> query_to_csv('my_database.db', 'SELECT * FROM my_table;', 'query_output.csv')   
+    >>> create_xy_database('xy_database.db', df_X, df_Y)
+'''
 import sqlite3
 import pandas as pd
 
